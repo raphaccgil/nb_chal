@@ -1,0 +1,2 @@
+## Libs used
+pyspark==3.1.1

@@ -1,0 +1,6 @@
+## ignore file
+
+venv/
+*.csv
+diagram/*
+.idea/*
