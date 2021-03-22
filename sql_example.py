@@ -58,13 +58,13 @@ def sql_statement(sqlContext, accounts, customers, d_time, d_month, d_year, tran
                                  SELECT  transfer_ins.amount,
                                          transfer_ins.account_id,
                                          customers.customer_id,
-                                         transfer_ins.transaction_requested_at,
+                                         transfer_ins.transaction_completed_at,
                                          transfer_ins.status,
                                          d_year.action_year year,
                                          d_month.action_month month 
                                   from transfer_ins 
                                   left join d_time on
-                                    transfer_ins.transaction_requested_at = d_time.time_id
+                                    transfer_ins.transaction_completed_at = d_time.time_id
                                   left join d_month on
                                     d_month.month_id = d_time.month_id
                                   left join d_year on
@@ -88,13 +88,13 @@ def sql_statement(sqlContext, accounts, customers, d_time, d_month, d_year, tran
                                  SELECT transfer_outs.amount,
                                          transfer_outs.account_id,
                                          customers.customer_id,
-                                         transfer_outs.transaction_requested_at,
+                                         transfer_outs.transaction_completed_at,
                                          transfer_outs.status,
                                          d_year.action_year year,
                                          d_month.action_month month 
                                  from transfer_outs 
                                  left join d_time on
-                                    transfer_outs.transaction_requested_at = d_time.time_id
+                                    transfer_outs.transaction_completed_at = d_time.time_id
                                  left join d_month on
                                     d_month.month_id = d_time.month_id
                                  left join d_year on
